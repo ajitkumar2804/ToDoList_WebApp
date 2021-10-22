@@ -2,6 +2,7 @@ const btninput = document.querySelector(".input input");
 const addbtn = document.querySelector(".input button");
 const list = document.querySelector(".list");
 const btnClear = document.querySelector("#clear");
+const pending = document.querySelector(".pending");
 
 //funtion for add button transition 
 btninput.onkeyup = function(){
@@ -16,6 +17,9 @@ showTask();
  
 // add funtion 
 addbtn.onclick = function(){
+    if(btninput.value==""){
+         alert("Plese Enter The task");
+    }else{
     let user = btninput.value;
     let getLocalStorage = localStorage.getItem("New Task");
     if(getLocalStorage== null){
@@ -26,6 +30,7 @@ addbtn.onclick = function(){
     listArr.push(user);
     localStorage.setItem("New Task",JSON.stringify(listArr));
     showTask();
+}
 } 
 
 //Funtion for SHowing the task
@@ -36,6 +41,7 @@ function showTask(){
     }else{
         listArr = JSON.parse(getLocalStorage);
     }
+    pending.textContent = listArr.length;
     let newtag = '';
     listArr.forEach((element,index) => {
         newtag += `<li>${element}<span onclick="removeTask(${index})"><i class="fas fa-trash"></i></span></li>`
@@ -43,7 +49,7 @@ function showTask(){
     list.innerHTML = newtag;
     btninput.value = "";
 }
-
+//to removw the task from list
 function removeTask(index){
     let getLocalStorage = localStorage.getItem("New Task");
     listArr = JSON.parse(getLocalStorage);
@@ -51,3 +57,13 @@ function removeTask(index){
     localStorage.setItem("New Task",JSON.stringify(listArr));
     showTask();
 }
+
+
+btnClear.onclick = function(){
+    listArr =[];
+    localStorage.setItem("New Task",JSON.stringify(listArr));
+    showTask();
+
+}
+
+

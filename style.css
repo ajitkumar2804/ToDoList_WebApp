@@ -91,4 +91,5 @@ body{
      padding: 6px 10px;
      font-size: 15px;
      border: none;
+     cursor: pointer;
 }
