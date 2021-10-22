@@ -37,7 +37,7 @@ body{
     width:50px ;
     height: 100%;
     border: none;
-    background-color: coral;
+    background-color: #5B21B6;
     color: #fff;
     margin-left: 5px;
     font-size: 25px;
@@ -87,7 +87,7 @@ body{
 .footer button{
     border-radius: 3px;
      color: #fff;
-     background-color: coral;
+     background-color: #7C3AED;
      padding: 6px 10px;
      font-size: 15px;
      border: none;
