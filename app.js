@@ -58,7 +58,7 @@ function removeTask(index){
     showTask();
 }
 
-
+//funtion to clear all the task at a time 
 btnClear.onclick = function(){
     listArr =[];
     localStorage.setItem("New Task",JSON.stringify(listArr));
