@@ -37,6 +37,8 @@ body{
     width:50px ;
     height: 100%;
     border: none;
+    background-color: coral;
+    color: #fff;
     margin-left: 5px;
     font-size: 25px;
     cursor: pointer;
