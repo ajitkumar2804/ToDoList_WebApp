@@ -38,9 +38,16 @@ function showTask(){
     }
     let newtag = '';
     listArr.forEach((element,index) => {
-        newtag += `<li>${element}<span><i class="fas fa-trash"></i></span></li>`
+        newtag += `<li>${element}<span onclick="removeTask(${index})"><i class="fas fa-trash"></i></span></li>`
     });
     list.innerHTML = newtag;
     btninput.value = "";
 }
 
+function removeTask(index){
+    let getLocalStorage = localStorage.getItem("New Task");
+    listArr = JSON.parse(getLocalStorage);
+    listArr.splice(index,1);
+    localStorage.setItem("New Task",JSON.stringify(listArr));
+    showTask();
+}
